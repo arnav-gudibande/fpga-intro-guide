@@ -12,25 +12,32 @@
 # 
 # vlog -vlog01compat -work work +incdir+C:/intelFPGA/17.0/Braindrop {C:/intelFPGA/17.0/Braindrop/braindrop.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:18:52 on Jul 21,2017
+# Start time: 11:23:59 on Jul 28,2017
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/intelFPGA/17.0/Braindrop" C:/intelFPGA/17.0/Braindrop/braindrop.v 
 # -- Compiling module braindrop
 # 
 # Top level modules:
 # 	braindrop
-# End time: 13:18:52 on Jul 21,2017, Elapsed time: 0:00:00
+# End time: 11:23:59 on Jul 28,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 vsim work.braindrop
 # vsim work.braindrop 
-# Start time: 13:18:58 on Jul 21,2017
+# Start time: 11:24:08 on Jul 28,2017
 # Loading work.braindrop
-add wave -position end  sim:/braindrop/I1
-add wave -position end  sim:/braindrop/I2
-add wave -position end  sim:/braindrop/O1
-noforce sim:/braindrop/I1
-force -freeze sim:/braindrop/I1 1 0, 0 {50 ps} -r 100
-force -freeze sim:/braindrop/I2 1 0, 0 {25 ps} -r 100
+add wave -position insertpoint  \
+sim:/braindrop/clk
+force -freeze sim:/braindrop/clk 1 0, 0 {50 ps} -r 100
+add wave -position end  sim:/braindrop/IN0
+add wave -position end  sim:/braindrop/IN1
+add wave -position end  sim:/braindrop/LEDG
+add wave -position end  sim:/braindrop/LEDR
+add wave -position end  sim:/braindrop/cnt
+force -freeze sim:/braindrop/clk 1 0, 0 {50 ps} -r 100
+force -freeze sim:/braindrop/IN0 1 0, 0 {50 ps} -r 100
+force -freeze sim:/braindrop/IN1 1 0, 0 {50 ps} -r 100
+run
+force -freeze sim:/braindrop/IN1 1 0, 0 {50 ps} -r 100
 run
 run
 run
@@ -39,3 +46,22 @@ run
 run
 run
 run
+force -freeze sim:/braindrop/IN1 1 0, 0 {25 ps} -r 100
+restart
+run
+restart
+force -freeze sim:/braindrop/IN0 1 0, 0 {50 ps} -r 100
+force -freeze sim:/braindrop/IN1 1 0, 0 {25 ps} -r 100
+force -freeze sim:/braindrop/clk 1 0, 0 {0 ps} -r 1
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 11:44:01 on Jul 28,2017, Elapsed time: 0:19:53
+# Errors: 0, Warnings: 0

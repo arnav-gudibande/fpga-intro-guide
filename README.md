@@ -9,8 +9,6 @@ This is a relatively straightforward guide to designing, building and programmin
 * Qsys Systems Integration Tool
 * Intel Arria 10 GX Development Kit (Optional)
 
----
-
 ## Preface
 
 Think of a Field-Programmable Gate Array ([FPGAs](https://en.wikipedia.org/wiki/Field-programmable_gate_array)) as a processor whose physical logic you can code and design. Quite literally, what FPGA design tools like Quartus Prime do is to take a Hardware Description Language (HDL), such as Verilog or VHDL, and map it to physical digital logic onto a processor. This means, that given the time and resources, it is viable to program the logic of an x64 computer processor, such as the Intel i7, onto an FPGA. In fact, due to their versatility, FPGAs are largely used as test beds to prototype custom PCBs or chipsets.
@@ -65,5 +63,33 @@ Once the analysis & synthesis command has been executed, the pin planner in Quar
 
 In this screenshot, various pins have already been assigned. However, it is important for you to look through the documentation to determine which pins are available for use. In this case of the Intel Arria 10 GX, its [documentation](https://www.altera.com/documentation/iga1437675412911.html#bhc1412754188509) give the location of User defined I/O pins available for usage. Once these locations have been identifed, use the Pin Planner (*Assignments &rarr; Pin Planner*) to specifically define where on the FPGA certain pins will reside.
 
-### Quartus Pin Planner
+### Quartus Prime Pin Planner
 ![image](https://user-images.githubusercontent.com/15108659/28730824-58808c94-7386-11e7-9a77-9847657804d2.png)
+
+## Running Waveform simulations
+
+Waveform simulations are important tests to verify your verilog code in a setting where you either do not have an FPGA or need to verify your design in software.
+
+Navigate to *Tools &rarr; Run Simulation Tool &rarr; RTL Simulation*
+
+If you specified your RTL Simulation tool as ModelSim, then it should open. Expand the work directory and double click on your project name. Then, drag the objects you see into the "Wave" screen of ModelSim. Once there, you can right click on any of your inputs to simulate any waveform. In the following example, I have decided to simulate clock waveforms with a 50% and 25% duty cycle for `IN0` and `IN1` respectively
+
+### ModelSim Waveform Result
+![image](https://user-images.githubusercontent.com/15108659/28731232-f9a39e26-7387-11e7-906b-a5e741f072b5.png)
+
+---
+
+# Hardware Verification
+
+Once you have fully compiled your Quartus project and have a compatible FPGA, you are ready to run a hardware Verification
+
+* Plug your FPGA Development Kit into a power supply
+* Follow device specific instructions to enable user programming (in some cases, certain DIP switches need to be actuated)
+* Setup Interface with Dev Kit (JTAG, PCIe, or USB)
+* Open the Quartus Prime Programmer
+  * Click Hardware Setup to detect device configuration
+  ![image](https://user-images.githubusercontent.com/15108659/28731607-6fc37ce2-7389-11e7-8b50-3b0b955bb70d.png)
+  * Next, detect your interface configuration on the programmer: *Auto Detect &rarr; Finish*
+  ![image](https://user-images.githubusercontent.com/15108659/28731538-30c09fd4-7389-11e7-88e5-b62d4ab447ee.png)
+* Add your `.sof` file to the top level device and enable `Program/Configure`
+* Click start to begin the programming process
