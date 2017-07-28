@@ -1,0 +1,134 @@
+// Copyright (C) 2017  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel MegaCore Function License Agreement, or other 
+// applicable license agreement, including, without limitation, 
+// that your use is for the sole purpose of programming logic 
+// devices manufactured by Intel and sold by Intel or its 
+// authorized distributors.  Please refer to the applicable 
+// agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 17.0.0 Build 595 04/25/2017 SJ Standard Edition"
+
+// DATE "07/21/2017 14:48:54"
+
+// 
+// Device: Altera 10AX115S2F45I2SGES Package FBGA1932
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module braindrop (
+	I1,
+	I2,
+	O1);
+input 	I1;
+input 	I2;
+output 	O1;
+
+// Design Ports Information
+// O1	=>  Location: PIN_F28,	 I/O Standard: 1.8 V,	 Current Strength: Default
+// I1	=>  Location: PIN_AT14,	 I/O Standard: 1.8 V,	 Current Strength: Default
+// I2	=>  Location: PIN_AY21,	 I/O Standard: 1.8 V,	 Current Strength: Default
+// ~ALTERA_DATA0~	=>  Location: PIN_AU27,	 I/O Standard: 1.8 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \~ALTERA_DATA0~~padout ;
+wire \~ALTERA_DATA0~~ibuf_o ;
+wire \O1~output_o ;
+wire \I2~input_o ;
+wire \I1~input_o ;
+wire \O1~0_combout ;
+
+
+// Location: IOOBUF_X78_Y206_N48
+twentynm_io_obuf \O1~output (
+	.i(\O1~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\O1~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \O1~output .bus_hold = "false";
+defparam \O1~output .open_drain_output = "false";
+defparam \O1~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X142_Y40_N32
+twentynm_io_ibuf \I2~input (
+	.i(I2),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.o(\I2~input_o ));
+// synopsys translate_off
+defparam \I2~input .bus_hold = "false";
+defparam \I2~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X142_Y35_N62
+twentynm_io_ibuf \I1~input (
+	.i(I1),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.o(\I1~input_o ));
+// synopsys translate_off
+defparam \I1~input .bus_hold = "false";
+defparam \I1~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LABCELL_X143_Y54_N30
+twentynm_lcell_comb \O1~0 (
+// Equation(s):
+// \O1~0_combout  = ( \I1~input_o  ) # ( !\I1~input_o  & ( \I2~input_o  ) )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\I2~input_o ),
+	.datad(gnd),
+	.datae(!\I1~input_o ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\O1~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \O1~0 .extended_lut = "off";
+defparam \O1~0 .lut_mask = 64'h0F0FFFFF0F0FFFFF;
+defparam \O1~0 .shared_arith = "off";
+// synopsys translate_on
+
+assign O1 = \O1~output_o ;
+
+endmodule

@@ -1,0 +1,41 @@
+# Reading C:/intelFPGA/17.0/modelsim_ase/tcl/vsim/pref.tcl
+# do braindrop_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA/17.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/intelFPGA/17.0/Braindrop {C:/intelFPGA/17.0/Braindrop/braindrop.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:18:52 on Jul 21,2017
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/intelFPGA/17.0/Braindrop" C:/intelFPGA/17.0/Braindrop/braindrop.v 
+# -- Compiling module braindrop
+# 
+# Top level modules:
+# 	braindrop
+# End time: 13:18:52 on Jul 21,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vsim work.braindrop
+# vsim work.braindrop 
+# Start time: 13:18:58 on Jul 21,2017
+# Loading work.braindrop
+add wave -position end  sim:/braindrop/I1
+add wave -position end  sim:/braindrop/I2
+add wave -position end  sim:/braindrop/O1
+noforce sim:/braindrop/I1
+force -freeze sim:/braindrop/I1 1 0, 0 {50 ps} -r 100
+force -freeze sim:/braindrop/I2 1 0, 0 {25 ps} -r 100
+run
+run
+run
+run
+run
+run
+run
+run

@@ -1,0 +1,15 @@
+PowerPlay Power Analyzer Status : Successful - Fri Jul 21 14:55:57 2017
+Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Standard Edition
+Revision Name : braindrop
+Top-level Entity Name : braindrop
+Family : Arria 10
+Device : 10AX115S2F45I2SGES
+Power Models : Final
+Total Thermal Power Dissipation : 2033.40 mW
+Transceiver Standby Thermal Power Dissipation : 0.00 mW
+Transceiver Dynamic Thermal Power Dissipation : 0.00 mW
+I/O Standby Thermal Power Dissipation : 0.13 mW
+I/O Dynamic Thermal Power Dissipation : 0.00 mW
+Core Dynamic Thermal Power Dissipation : 0.00 mW
+Device Static Thermal Power Dissipation : 2033.28 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

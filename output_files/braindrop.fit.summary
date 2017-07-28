@@ -1,0 +1,17 @@
+Fitter Status : Successful - Thu Jul 27 15:46:44 2017
+Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Standard Edition
+Revision Name : braindrop
+Top-level Entity Name : braindrop
+Family : Arria 10
+Device : 10AX115S2F45I1SG
+Timing Models : Final
+Logic utilization (in ALMs) : 13 / 427,200 ( < 1 % )
+Total registers : 39
+Total pins : 19 / 960 ( 2 % )
+Total virtual pins : 0
+Total block memory bits : 0 / 55,562,240 ( 0 % )
+Total RAM Blocks : 0 / 2,713 ( 0 % )
+Total DSP Blocks : 0 / 1,518 ( 0 % )
+Total HSSI RX channels : 0 / 72 ( 0 % )
+Total HSSI TX channels : 0 / 72 ( 0 % )
+Total PLLs : 0 / 144 ( 0 % )
