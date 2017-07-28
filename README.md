@@ -9,7 +9,7 @@ This is a relatively straightforward guide to designing, building and programmin
 * Qsys Systems Integration Tool
 * Intel Arria 10 GX Development Kit (Optional)
 
---*
+---
 
 ## Preface
 
@@ -44,7 +44,7 @@ Recall that the naming convention for Intel Arria 10 FPGAs is as follows:
 
 ![image](https://user-images.githubusercontent.com/15108659/28729851-c2b2eb6a-7382-11e7-8a2c-1f008e8a0f15.png)
 
---*
+---
 
 # Sample Project
 
