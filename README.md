@@ -1,5 +1,8 @@
 # FPGA Intro Guide
 
+![image](https://user-images.githubusercontent.com/15108659/28730824-58808c94-7386-11e7-9a77-9847657804d2.png)
+*The Pin Planner on Quartus Prime*
+
 This is a relatively straightforward guide to designing, building and programming an FPGA using the Quartus Prime Development Suite. This guide also includes an example Quartus Project, called Braindrop, that will be referred to throughout the guide.
 
 ## Tools Used
